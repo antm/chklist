@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  duedate: 2015-03-03 19:51:32
+  endtime: 2015-03-03 19:51:32
+  position: 1
+  starttime: 2015-03-03 19:51:32
+  status_id: 1
+  title: MyString
+  urgency_id: 1
+
+two:
+  duedate: 2015-03-03 19:51:32
+  endtime: 2015-03-03 19:51:32
+  position: 1
+  starttime: 2015-03-03 19:51:32
+  status_id: 1
+  title: MyString
+  urgency_id: 1
