@@ -13,7 +13,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to @task
     else
-      render :action => "new"
+      render 'new'
     end
   end
 
@@ -28,17 +28,18 @@ class TasksController < ApplicationController
   def update
     @task = Task.find params[:id]
     if @task.update params_task
-      redirect_to :action => 'index'
+      redirect_to tasks_url
+    else
+      render 'edit'
     end
   end
 
   def destroy
     @task = Task.find params[:id]
-    if @task.destroy
-      flash[:success] = "#{@task.title} destroyed (add undo link here)"
-      redirect_to :action => 'index'
+    if @task.destroy 
+      redirect_to tasks_url, notice: "#{@task.title} destroyed (add undo link here)"
     else
-      flash[:error] = 'Woops'
+      redirect_to @task, alert: 'Woops'
     end
   end
 
