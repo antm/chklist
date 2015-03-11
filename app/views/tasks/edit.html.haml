@@ -1,0 +1,7 @@
+%h1 Edit a Task
+
+= form_for @task do |t|
+  = t.text_field :title, placeholder: 'Task title'
+  = t.text_field :starttime, placeholder: 'Length'
+  = t.check_box :urgent
+  = t.submit 

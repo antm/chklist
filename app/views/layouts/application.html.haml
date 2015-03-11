@@ -7,4 +7,8 @@
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
+    = link_to 'Home', tasks_path 
+    = link_to 'Create', new_task_path
+    - flash.each do |key, msg|
+      = content_tag :p, msg, class: key 
     = yield

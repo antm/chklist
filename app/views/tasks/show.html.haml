@@ -1,0 +1,15 @@
+%h1 
+  = @task.title
+= link_to 'Edit', edit_task_path(@task)
+
+%p 
+  Start: 
+  = @task.starttime
+%p 
+  End: 
+  = @task.endtime
+%p 
+  Urgent:
+  = @task.urgent
+
+= link_to 'Destroy', @task, method: 'delete'
