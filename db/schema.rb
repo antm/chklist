@@ -20,7 +20,6 @@ ActiveRecord::Schema.define(version: 20150311004130) do
     t.datetime "starttime"
     t.integer  "status_id"
     t.string   "title"
-    t.integer  "urgency_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean  "urgent"
