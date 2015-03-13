@@ -1,4 +1,5 @@
-class CreateTasks < ActiveRecord::Migration def change
+class CreateTasks < ActiveRecord::Migration 
+def change
     create_table :tasks do |t|
       t.datetime :duedate
       t.datetime :endtime
