@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150311004130) do
+ActiveRecord::Schema.define(version: 20150313144534) do
 
   create_table "tasks", force: :cascade do |t|
     t.datetime "duedate"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20150311004130) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean  "urgent"
+    t.integer  "duration"
   end
 
 end
