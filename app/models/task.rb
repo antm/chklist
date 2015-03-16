@@ -1,4 +1,4 @@
 class Task < ActiveRecord::Base
 
-  validates :title, :starttime, presence: true 
+  validates :title, :duration, presence: true 
 end
