@@ -1,6 +1,6 @@
 = form_for @task do |t|
   - if @task.errors.any?
-    %div.errors
+    .errors
       %h2 #{pluralize @task.errors.count, 'Error'}
       - @task.errors.full_messages.each do |msg|
         %ul
