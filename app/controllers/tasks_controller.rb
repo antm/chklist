@@ -11,7 +11,9 @@ class TasksController < ApplicationController
   def create
     @task = Task.new params_task
     if @task.save
-      redirect_to @task
+      # which way is better?
+      # redirect_to action: "index"
+      redirect_to tasks_url
     else
       render 'new'
     end
