@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
 
   def index
-    @tasks = Task.all.order("urgent DESC")
+    @tasks = Task.today
   end
 
   def new
