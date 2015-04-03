@@ -2,6 +2,7 @@ class TasksController < ApplicationController
 
   def index
     @tasks = Task.today
+    @total_time = Task.total_time 
   end
 
   def new

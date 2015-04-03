@@ -1,10 +1,17 @@
 %h1 Hello world!
 
-=debug @tasks
-/ %ul
-/ - @tasks.each do |task|
-/   %li 
-/     = link_to task.title, task
-/     = task.duration
-/     = task.urgent
+/ =debug @tasks
 
+- @tasks.each_with_index do |tasks, index|
+  %h2 
+    Day
+    = index
+  %ul
+  - tasks.each do |task|
+    %li 
+      = link_to task.title, task
+      = task.duration
+      = task.urgent
+
+%h2 
+  = @total_time

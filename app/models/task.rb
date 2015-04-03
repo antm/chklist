@@ -1,8 +1,13 @@
 class Task < ActiveRecord::Base
 
-  validates :title, :duration, presence: true 
+  validates :title, :duration, presence: true
 
   # TODO: chunk tasks in 6-hour blocks (by urgency, duration)
+
+
+  def self.total_time
+    sum(:duration)
+  end
 
   def self.today
     tasks = all # TODO: incomplete tasks only
@@ -15,14 +20,14 @@ class Task < ActiveRecord::Base
       tasks.each do |task|
         if budget > 0 
           # group tasks into days
-            list_for_day << task.title
+          list_for_day << task
 
-            # update our counters
-            budget -= task.duration
-            tasks = tasks.reject {|member| member == task}
+          # update our counters
+          budget -= task.duration
+          tasks = tasks.reject {|member| member == task}
 
-            # logger.debug "Tasks: #{tasks.count}, Budget: #{budget}, List: #{list_for_day.count}"
-          end
+          # logger.debug "Tasks: #{tasks.count}, Budget: #{budget}, List: #{list_for_day.count}"
+        end
       end
 
       tasks_by_day << list_for_day
@@ -31,7 +36,6 @@ class Task < ActiveRecord::Base
     end
     tasks_by_day
   end
-
 
 
 end
