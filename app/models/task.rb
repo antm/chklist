@@ -2,9 +2,9 @@ class Task < ActiveRecord::Base
 
   validates :title, :duration, presence: true
 
-  # TODO: chunk tasks in 6-hour blocks (by urgency, duration)
+  before_save :round_duration
 
-
+  # TODO: chunk tasks in 6-hour blocks (by urgency, :duration)
   def self.total_time
     sum(:duration)
   end
@@ -37,5 +37,15 @@ class Task < ActiveRecord::Base
     tasks_by_day
   end
 
-
+  def round_duration
+    if self.duration <= 15
+      self.duration = 15
+    elsif self.duration <= 30
+      self.duration = 30
+    elsif self.duration <= 45
+      self.duration = 45
+    else
+      self.duration = 60
+    end
+  end
 end
