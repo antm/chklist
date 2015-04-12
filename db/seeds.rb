@@ -11,17 +11,17 @@ Task.create([
   {
     title: 'Task the first',
     duration: 180,
-    urgent: false
+    important: false
   },
   {
     title: 'Task the second',
     duration: 180,
-    urgent: true
+    important: true
   },
   {
     title: 'Task the third',
     duration: 180,
-    urgent: true
+    important: true
   }
 
 ])

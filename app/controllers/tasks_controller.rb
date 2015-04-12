@@ -11,9 +11,8 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new params_task
+      
     if @task.save
-      # which way is better?
-      # redirect_to action: "index"
       redirect_to tasks_url
     else
       render 'new'
@@ -49,7 +48,7 @@ class TasksController < ApplicationController
   private
     
     def params_task
-      params.require(:task).permit(:duration, :title, :urgent)
+      params.require(:task).permit(:duration, :title, :important)
     end
 
 end
