@@ -46,3 +46,5 @@ end
 ## ADDED
 
 gem 'haml-rails'
+gem 'bourbon'
+gem 'neat', '~> 1.7.2'
