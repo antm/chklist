@@ -1,5 +1,6 @@
 body {
   color: #333;
+  @include background-image(linear-gradient(rgb(34, 183, 191) 0%, rgb(102, 161, 228) 100%));
 }
 .errors {
   color: red;
