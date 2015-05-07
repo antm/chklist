@@ -2,12 +2,12 @@
   %h2 
     Day
     = index
-  %ul
-  - tasks.each do |task|
-    %li 
-      = link_to task.title, task
-      = task.duration
-      = task.important
+  %ul{id: 'tasks'}
+    - tasks.each do |task|
+      =content_tag_for :li, task do
+        = link_to task.title, task
+        = task.duration
+        = task.important
 
 %h2 
   = @total_time
