@@ -1,8 +1,9 @@
 class Task < ActiveRecord::Base
+  acts_as_list
 
   validates :title, :duration, presence: true
 
-  before_save :round_duration
+#  before_save :round_duration
 
   # TODO: chunk tasks in 6-hour blocks (by urgency, :duration)
   def self.total_time
@@ -44,8 +45,10 @@ class Task < ActiveRecord::Base
       self.duration = 30
     elsif self.duration <= 45
       self.duration = 45
-    else
-      self.duration = 60
+    elsif self.duration <= 60 
+      self.duration = 60 
+   else
+      self.duration = 75
     end
   end
 end

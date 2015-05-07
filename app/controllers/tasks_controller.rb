@@ -1,7 +1,7 @@
 class TasksController < ApplicationController
 
   def index
-    @tasks = Task.today
+    @tasks = Task.order('position').today
     @total_time = Task.total_time 
   end
 
@@ -45,10 +45,16 @@ class TasksController < ApplicationController
     end
   end
 
+  def sort
+    params[:task].each_with_index do |id, index|
+      Task.where(id: id).update_all({position: index+1})
+    end
+    render nothing: true
+  end
   private
     
     def params_task
-      params.require(:task).permit(:duration, :title, :important)
+      params.require(:task).permit(:duration, :title, :important, :task)
     end
 
 end

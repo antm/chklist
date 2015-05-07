@@ -48,3 +48,4 @@ end
 gem 'haml-rails'
 gem 'bourbon'
 gem 'neat', '~> 1.7.2'
+gem 'acts_as_list'

@@ -1,13 +1,30 @@
-- @tasks.each_with_index do |tasks, index|
-  %h2 
-    Day
-    = index
-  %ul{id: 'tasks'}
+%ul{data: {update_url: sort_tasks_url}, id: "tasks"}
+  - @tasks.each_with_index do |tasks, index|
+    %li.h2
+      Day
+      = index
     - tasks.each do |task|
       =content_tag_for :li, task do
         = link_to task.title, task
         = task.duration
         = task.important
+        = task.position
 
-%h2 
-  = @total_time
+   
+:javascript
+  $(document).ready(function() {
+    function enableSorting(lists) {
+          return $(lists).sortable({
+            axis: 'y',
+            cancel: '.h2',
+            connectWith: '.tasks',
+            update: function() {
+              return $.post($(this).data('update-url'), $(this).sortable('serialize'));
+            }
+          });
+        };
+    enableSorting('#tasks');
+  });
+
+
+
