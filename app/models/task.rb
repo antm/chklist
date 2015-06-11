@@ -3,7 +3,7 @@ class Task < ActiveRecord::Base
 
   validates :title, :duration, presence: true
 
-#  before_save :round_duration
+ before_save :round_duration
 
   # TODO: chunk tasks in 6-hour blocks (by urgency, :duration)
   def self.total_time
