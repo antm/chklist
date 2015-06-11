@@ -1,8 +1,13 @@
 class TasksController < ApplicationController
+  before_action :get_task, only: [:edit, :update, :destroy]
+
+  def get_task #where should this go on the page, before or after the edit,update, etc?
+    @task = Task.find params[:id]
+  end
 
   def index
     @tasks = Task.order('position').today
-    @total_time = Task.total_time 
+    @total_time = Task.total_time
   end
 
   def new
@@ -11,7 +16,7 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new params_task
-      
+
     if @task.save
       redirect_to tasks_url
     else
@@ -24,11 +29,9 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = Task.find params[:id]
   end
 
   def update
-    @task = Task.find params[:id]
     if @task.update params_task
       redirect_to tasks_url
     else
@@ -37,8 +40,7 @@ class TasksController < ApplicationController
   end
 
   def destroy
-    @task = Task.find params[:id]
-    if @task.destroy 
+    if @task.destroy
       redirect_to tasks_url, notice: "#{@task.title} destroyed (add undo link here)"
     else
       redirect_to @task, alert: 'Woops'
@@ -51,8 +53,9 @@ class TasksController < ApplicationController
     end
     render nothing: true
   end
+
   private
-    
+
     def params_task
       params.require(:task).permit(:duration, :title, :important, :task)
     end
