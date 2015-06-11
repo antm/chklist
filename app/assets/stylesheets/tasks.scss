@@ -8,6 +8,33 @@ body {
   border: 1px solid red;
   display: inline;
 }
-li.h2 {
+li.h2 { // For long term usability & readability we want to avoid using basic selectors like this
   font-weight: bold;
+}
+
+.wrapper {
+  @include outer-container;
+}
+.wrapper__inner {
+  @include span-columns(6);
+  @include shift(3);
+}
+
+.focusBlock {
+  border-bottom: 29px solid #666;
+  margin-bottom: 20px;
+}
+.focusBlock__task {
+  font-size: 2em;
+}
+
+.uiList {
+
+}
+.uiList__title {
+  margin-top: 20px;
+  font-weight: bold;
+}
+.uiList__item {
+
 }

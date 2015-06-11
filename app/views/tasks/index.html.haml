@@ -1,30 +1,20 @@
-%ul{data: {update_url: sort_tasks_url}, id: "tasks"}
-  - @tasks.each_with_index do |tasks, index|
-    %li.h2
-      Day
-      = index
-    - tasks.each do |task|
-      =content_tag_for :li, task do
-        = link_to task.title, task
-        = task.duration
-        = task.important
-        = task.position
+.wrapper
+  .wrapper__inner
 
-   
-:javascript
-  $(document).ready(function() {
-    function enableSorting(lists) {
-          return $(lists).sortable({
-            axis: 'y',
-            cancel: '.h2',
-            connectWith: '.tasks',
-            update: function() {
-              return $.post($(this).data('update-url'), $(this).sortable('serialize'));
-            }
-          });
-        };
-    enableSorting('#tasks');
-  });
+    // Highlight the immediate task \\
+    .focusBlock
+      %h1.focusBlock__task= @tasks[0].first.title
 
-
-
+    // Listing all tasks \\
+    .uiList
+      %ol{data: {update_url: sort_tasks_url}, id: "tasks"}
+        - @tasks.each_with_index do |tasks, index|
+          %li.uiList__title
+            Day
+            = index
+          - tasks.each do |task|
+            =content_tag_for :li, task do
+              = link_to task.title, task
+              = task.duration
+              /= task.important
+              / = task.position

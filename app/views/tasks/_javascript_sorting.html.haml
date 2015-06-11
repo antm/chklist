@@ -1,0 +1,16 @@
+<!-- Start Javascript Sorting Script -->
+:javascript
+  $(document).ready(function() {
+    function enableSorting(lists) {
+          return $(lists).sortable({
+            axis: 'y',
+            cancel: '.h2',
+            connectWith: '.tasks',
+            update: function() {
+              return $.post($(this).data('update-url'), $(this).sortable('serialize'));
+            }
+          });
+        };
+    enableSorting('#tasks');
+  });
+<!-- End Javascript Sorting Script -->

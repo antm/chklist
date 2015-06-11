@@ -9,8 +9,9 @@
     %script{type: 'text/javascript', src: 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js'}
     = csrf_meta_tags
   %body
-    = link_to 'Home', tasks_path 
+    = link_to 'Home', tasks_path
     = link_to 'Create', new_task_path
     - flash.each do |key, msg|
-      = content_tag :p, msg, class: key 
+      = content_tag :p, msg, class: key
     = yield
+    = render 'tasks/javascript_sorting'
