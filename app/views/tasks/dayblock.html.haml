@@ -1,0 +1,10 @@
+.wrapper
+  - @tasks.each_with_index do |tasks, index|
+    .wrapper
+      .dayblock__title
+        = (Time.now + index.hours).strftime("%l %p").strip
+
+      - tasks.each do |task|
+        =content_tag_for(:div, task, class: "block--" + task.duration.to_s) do
+          = task.duration
+          = link_to task.title, task

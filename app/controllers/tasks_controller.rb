@@ -54,6 +54,18 @@ class TasksController < ApplicationController
     render nothing: true
   end
 
+  def dayblock
+    @tasks = Task.order('position').dayblock
+    @total_time = Task.total_time
+    current_time
+  end
+
+  def current_time
+    t = Time.now
+    t += 1.hours
+    @hour_block = t.strftime("%l %p").strip!
+  end
+
   private
 
     def params_task

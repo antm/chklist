@@ -10,6 +10,7 @@
     = csrf_meta_tags
   %body
     = link_to 'Home', tasks_path
+    = link_to 'Dayblock', dayblock_path
     = link_to 'Create', new_task_path
     - flash.each do |key, msg|
       = content_tag :p, msg, class: key
