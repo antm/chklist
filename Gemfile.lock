@@ -98,6 +98,7 @@ GEM
     mime-types (2.4.3)
     mini_portile (0.6.2)
     minitest (5.5.1)
+    mousetrap-rails (1.4.6)
     multi_json (1.10.1)
     neat (1.7.2)
       bourbon (>= 4.0)
@@ -186,6 +187,7 @@ DEPENDENCIES
   haml-rails
   jbuilder (~> 2.0)
   jquery-rails
+  mousetrap-rails
   neat (~> 1.7.2)
   rails (= 4.2.0)
   sass-rails (~> 5.0)

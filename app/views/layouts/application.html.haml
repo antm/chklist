@@ -9,9 +9,9 @@
     %script{type: 'text/javascript', src: 'https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js'}
     = csrf_meta_tags
   %body
-    = link_to 'Home', tasks_path
-    = link_to 'Dayblock', dayblock_path
-    = link_to 'Create', new_task_path
+    = link_to 'Home', tasks_path, data: { keybinding: 'h' }
+    = link_to 'Dayblock', dayblock_path, data: { keybinding: 'd' }
+    = link_to 'Create', new_task_path, data: { keybinding: 'n' }
     - flash.each do |key, msg|
       = content_tag :p, msg, class: key
     = yield
