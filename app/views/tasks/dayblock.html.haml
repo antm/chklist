@@ -7,4 +7,4 @@
       - tasks.each do |task|
         =content_tag_for(:div, task, class: "block--" + task.duration.to_s) do
           = task.duration
-          = link_to task.title.truncate(25), task
+          = link_to task.title, task

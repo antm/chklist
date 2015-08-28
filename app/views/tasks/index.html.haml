@@ -14,5 +14,5 @@
             = index
           - tasks.each do |task|
             =content_tag_for :li, task do
-              = link_to task.title.truncate(50), task
+              = link_to task.title, task
               = task.duration
