@@ -2,8 +2,9 @@
   .wrapper__inner
 
     // Highlight the immediate task \\
-    .focusBlock
-      %h1.focusBlock__task= @tasks[0].first.title
+    =unless @tasks.empty?
+      .focusBlock
+        %h1.focusBlock__task= @tasks[0].first.title
 
     // Listing all tasks \\
     .uiList
